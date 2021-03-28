@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <div th:insert="header"></div>
+    <title>О нас</title>
+</head>
+<body>
+<!--Кнопка-->
+<a id="upbutton"><i class="far fa-arrow-alt-circle-up"></i></a>
+<!--Шапка-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brad" title="На главную!"><img src="../static/img/favicon.png"
+                                                                 th:src="@{/img/favicon.png}" alt="ICO"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/sociologists" class="nav-link">Социологи</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/research" class="nav-link">Исследования</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/terminology" class="nav-link">Терминология</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/literature" class="nav-link">Литература</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link active" id="about_main_bs">О нас</a>
+                </li>
+                <!-- <li class="nav-item">
+                     <a href="reg.html" class="nav-link">Регистрация</a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="#" class="nav-link">Вход</a>
+                 </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid padding about_us">
+    <div class="row padding">
+        <div class="offset-lg-2 col-lg-4">
+            <span class="display-4 ">
+                Главный редактор, социолог, и вообще двигатель этого проекта:
+            </span>
+            <span class="display-1 title_about_us">
+               Татарец Татьяна
+            </span>
+            <div class="text-center title_about_us">
+                <h3 class="display-4">Также есть группа в телеграмме:</h3>
+                <div class="col-12 social padding">
+                    <a href="https://t.me/about_sociology" th:href="@{https://t.me/about_sociology}"><i
+                            class="fab fa-telegram about_telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img style="width: inherit" th:src="@{/img/photo.jpeg}" class="img-fluid" alt="Фото">
+        </div>
+
+    </div>
+</div>
+
+
+<!--Подключаем jQuery-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" th:href="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+<!--Popper and js Bootstrap-->
+<script type="text/javascript" src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script type="text/javascript" src="../static/js/all.min.js" th:src="@{/js/all.min.js}"></script>
+<script type="text/javascript" src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" th:href="@{https://use.fontawesome.com/releases/v5.15.1/js/all.js}"></script>
+<script src="../static/js/button_return.js" th:src="@{/js/button_return.js}"></script>
+</body>
+</html>

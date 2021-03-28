@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <div th:insert="header"></div>
+    <title>Регистрация</title>
+</head>
+<body class="reg_img">
+
+<!--Шапка-->
+<!--<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top">
+    <div class="container-fluid">
+       &lt;!&ndash; <a href="#" class="navbar-brad"><img src="../static/img/favicon.png" alt="ICO" th:src="@{img/favicon.png}"></a>&ndash;&gt;
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+        &lt;!&ndash;<div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="research.html" class="nav-link">Исследования</a>
+                </li>
+                <li class="nav-item">
+                    <a href="terminology.html" class="nav-link">Терминология</a>
+                </li>
+                <li class="nav-item">
+                    <a href="literature.html" class="nav-link">Литература</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" id="about_main_bs">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a href="reg.html" class="nav-link active">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Вход</a>
+                </li>
+            </ul>
+        </div>
+    </div>&ndash;&gt;
+</nav>-->
+<!--Кнопка-->
+<a id="upbutton"><i class="far fa-arrow-alt-circle-up"></i></a>
+
+<div class="container-fluid" id="reg_container">
+    <div class="row main-form">
+        <form class="" method="post" th:action="@{/login}">
+
+            <div class="form-group">
+                <div class="text-center"><label for="login" class="cols-sm-2 control-label">Введите ваш логин:</label></div>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control input_login" name="username" id="login" placeholder="Введите ваш логин..."/>
+                    </div>
+                </div>
+            </div>
+
+           <!-- <div class="form-group">
+                <div class="text-center"><label for="email" class="cols-sm-2 control-label">Ваш электронный почтовый ящик:</label></div>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control input_email" name="email" id="email" placeholder="Ваш электронный почтовый ящик..."/>
+                    </div>
+                </div>
+            </div>-->
+
+
+            <div class="form-group">
+                <div class="text-center"><label for="password" class="cols-sm-2 control-label">Пароль:</label></div>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control input_password" name="password" id="password" placeholder="Пароль..."/>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="form-group">
+                <div class="text-center"><label for="confirm" class="cols-sm-2 control-label">Повторите пароль:</label></div>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Повторите пароль..."/>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="form-group ">
+                <div class="text-center">
+                    <button id="button" type="submit" value="submit" class="btn btn-primary btn-lg btn-block login-button form_send_btn">Войти</button></div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<footer style="margin-top: auto" th:insert="footer_scripts"></footer>
+
+</body>
+</html>

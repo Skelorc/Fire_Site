@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <div th:insert="header"></div>
+    <title>Панель Администратора/Социологи</title>
+</head>
+
+
+<body>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brad" title="На главную!"><img src="../static/img/favicon.png" th:src="@{/img/favicon.png}" alt="ICO"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/sociologists" class="nav-link">Социологи</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/research" class="nav-link">Исследования</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/terminology" class="nav-link">Терминология</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/literature" class="nav-link">Литература</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link" id="about_main_bs">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/panel_admin" class="nav-link active" id="panel_admin">Панель администратора</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a href="reg.html" class="nav-link">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Вход</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="text-md-center">
+    <h1 class="display-4 title_article">Панель навигации администратора!</h1>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/panel_admin">Добавить/редактировать статью <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/panel_admin/book">Добавить/редактировать книгу <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/panel_admin/soc"> <span class="sr-only">(current)</span>Добавить/редактировать ученого</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/panel_admin/terms"> <span class="sr-only">(current)</span>Добавить/редактировать термин</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="text-center">
+    <h1 class="display-4 title_article">Добавление/редактирование информации о деятелях социологии</h1>
+</div>
+
+
+
+<div class="text-center">
+    <form th:action="@{/panel_admin/soc/send_soc}" method="post"  enctype="multipart/form-data" class="text-center">
+        <div class="form-group">
+            <label for="soc_name">Напишите ФИО Ученого.</label>
+            <input id="soc_name" type="text" name="name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="ФИО социолога">
+            <label for="words_biografy">Напишите биографию деятеля.</label>
+            <textarea id="words_biografy" rows="7" type="text" name="biografy" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Краткая биография"></textarea>
+            <label for="words_work">Что данный учёный сделал на благо социологии</label>
+            <textarea type="text" name="work" class="form-control" id="words_work" placeholder="Что сделал для социологии" rows="7"></textarea>
+            <input type="file" name="file" class="form-control-file" id="file_soc" placeholder="Найдите файл на компьютере!">
+            <button class="btn-success text-md-center">Добавить Ученого в базу данных!</button>
+        </div>
+    </form>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4 title_article">Редактирование данных о социологах!</h1>
+    <form method="get">
+        <label for="field_for_find_soc"><h5>Введите ключевые слова для поиска нужного социолога: </h5></label>
+        <input id="field_for_find_soc" type="text" name="name" placeholder="Введи имя умника!!!">
+        <br>
+        <br>
+        <button class="btn-info" type="submit">Получить Гения!</button>
+        <br>
+    </form>
+</div>
+
+<h1 class="text-center"> Найденные социологи: </h1>
+<div class="row jumbotron research_opacity" th:each="sociologists : ${soc}">
+    <a th:href="@{/panel_admin/soc/{id}/edit_soc(id = ${sociologists.getId()})}"><p th:utext="${sociologists.getName()}"></p></a>
+    <br>
+
+</div>
+
+<footer style="margin-top: auto" th:insert="footer_scripts"></footer>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <div th:insert="header"></div>
+    <title>Социологи</title>
+</head>
+<body>
+
+<!--Шапка-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brad" title="На главную!"><img src="../static/img/favicon.png"
+                                                                 th:src="@{img/favicon.png}" alt="ICO"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/sociologists" class="nav-link active">Социологи</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/research" class="nav-link">Исследования</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/terminology" class="nav-link">Терминология</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/literature" class="nav-link">Литература</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link" id="about_main_bs">О нас</a>
+                </li>
+                <!-- <li class="nav-item">
+                     <a href="/panel_admin" class="nav-link" id="panel_admin">Панель администратора</a>
+                 </li>-->
+                <!--<li class="nav-item">
+                    <a href="reg.html" class="nav-link">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Вход</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--Кнопка-->
+<a id="upbutton"><i class="far fa-arrow-alt-circle-up"></i></a>
+<br>
+
+<div class="text-center">
+    <h1 class="display-4 title_article">Информация о учёных - социологах!</h1>
+</div>
+<br>
+
+
+<table class="table table-bordered table_soc">
+    <thead>
+    <tr>
+        <th scope="col">ФИО</th>
+        <th scope="col">Изображение Социолога</th>
+        <th scope="col">Биография</th>
+        <th scope="col">Сделал для социологии</th>
+    </tr>
+    </thead>
+    <div class="text-center">
+        <tbody>
+        <tr th:each="sociologists : ${allsoc}">
+            <td class="align-middle"><h1 class="display-6" style="font-size: medium" th:utext="${sociologists.name}"></h1></td>
+            <td class="align-middle"><img class="rounded img-fluid" th:src="@{uploads/{url}(url=${sociologists.url_image})}"
+                                          alt="Изображение ученого!"></td>
+            <td class="align-middle"><h1 class="display-6" style="font-size: medium" th:utext="${sociologists.biografy}">Otto</h1></td>
+            <td class="align-middle"><h1 class="display-6" style="font-size: medium" th:utext="${sociologists.work}">Otto</h1></td>
+        </tr>
+        </tbody>
+    </div>
+</table>
+
+
+<footer style="margin-top: auto" th:insert="footer_scripts"></footer>
+</body>
+</html>

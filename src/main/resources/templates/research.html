@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <div th:insert="header"></div>
+    <title>Исследования</title>
+</head>
+<body>
+<!--Шапка-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brad"><img src="../static/img/favicon.png" alt="ICO" th:src="@{img/favicon.png}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/sociologists" class="nav-link">Социологи</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/research" class="nav-link active">Исследования</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/terminology" class="nav-link">Терминология</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/literature" class="nav-link">Литература</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link" id="about_main_bs">О нас</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a href="/reg" class="nav-link">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Вход</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--Кнопка-->
+<a id="upbutton"><i class="far fa-arrow-alt-circle-up"></i></a>
+<!--Слайдер-->
+<!--<div class="carousel slide" data-ride="carousel" id="slides">
+    <ol class="carousel-indicators">
+        <li data-target="#slides" data-slide-to="0" class="active"></li>
+        <li data-target="#slides" data-slide-to="1"></li>
+        <li data-target="#slides" data-slide-to="2"></li>
+        <li data-target="#slides" data-slide-to="3"></li>
+        <li data-target="#slides" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="../static/img/w1.jpg" alt="IMG" id="s1">
+            <div class="carousel-caption">
+                <h1 class="display-4"> Информация на первой картинке!</h1>
+                <h5>Тут тоже можно что - то добавить!</h5>
+                <button type="button" class="btn btn-outline-light btn-lg">Посмотреть</button>
+                <button type="button" class="btn btn-warning">Прочитать</button>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="../static/img/w2.jpg" alt="IMG" id="s2">
+            <div class="carousel-caption">
+                <h1 class="display-4"> Я тебя обожаю...</h1>
+                <h5>А ты меня?!</h5>
+                <button type="button" class="btn btn-outline-light btn-lg">Нет!</button>
+                <button type="button" class="btn btn-outline-primary">Вообще ни капельки!!</button>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="../static/img/w3.jpg" alt="IMG" id="s3">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="../static/img/w4.jpg" alt="IMG" id="s4">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="../static/img/w5.jpg" alt="IMG" id="s5">
+        </div>
+    </div>
+
+</div>-->
+<!--Исследование-->
+<div class="text-md-center">
+    <span class="display-4 title_article">Статьи и исследования!</span>
+</div>
+<div class="container-fluid padding">
+    <div class="row jumbotron research_opacity" th:each="article,iter : ${articles}">
+
+        <div class="date_now">
+            <h1 th:utext="${articles.size()-iter.index}"></h1>
+        </div>
+        <div class="col-10">
+            <h1 class="display-4 title_article" th:utext="${article.title}"> Разберём по пунктам, что же всё таки
+                такое...?</h1>
+        </div>
+        <br>
+        <div class="col-lg-6">
+            <p class="lead small_text_article" th:utext="${#strings.abbreviate(article.text,1000)}" >Какой - то текст твоего
+                исследования, дорогая...</p>
+        </div>
+        <div class="col-lg-6">
+            <br>
+            <img src="../static/img/blog.jpg" class="img-fluid img_article" th:src="@{uploads/{url}(url=${article.url_image})}"
+                 alt="должна быть картинка!">
+        </div>
+
+        <div class="text-center col-12">
+            <button type="button" class="btn btn-outline-dark btn_article" data-toggle="collapse"
+                    th:attr="data-target='#' + 'id_for_' + ${article.id}">Продолжить...
+            </button>
+        </div>
+
+        <div th:id="'id_for_' + ${article.id}" class="collapse">
+            <div class="container-fluid padding">
+                <div class="row text-center" id="text_article_big" th:utext="${#strings.substring(article.text,997)}">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Footer-->
+<footer style="margin-top: auto" th:insert="footer_scripts"></footer>
+</body>
+</html>

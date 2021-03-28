@@ -1,0 +1,508 @@
+/*----------------------------------------------------------------------------------------------------------*/
+/*Главная*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+
+body,html{
+    font-family: 'Merriweather',sans-serif;
+    width:100%;
+    height: 100%;
+    color:#222;
+    background-color: #a9d0ec;
+}
+html{
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.navbar{
+    background-image: linear-gradient(to bottom, #6ebfe3, #7ec3e5, #8dc8e7, #9bcce9, #a8d1eb);
+    font-size: large;
+    font-weight: bolder;
+}
+
+.nav-item{
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+}
+
+.nav-item:hover{
+    background: rgb(97,153,199);
+    border-radius: 20px;
+    transform-origin: center;
+    transform: scale(1.08);
+    text-decoration-color: #0b2e13;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+}
+
+.navbar-brad img{
+width: 50px;
+}
+
+.navbar-nav li{
+    padding-right: 20px;
+}
+
+.nav-link{font-size: 1.15em !important}
+
+/*Кнопка назад!*/
+
+#upbutton {
+    height: max-content;
+    width: 60px;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    display: inline-block;
+    position: fixed;
+    z-index: 1000;
+
+}
+
+.fa-arrow-alt-circle-up{
+    font-size: 3em;
+    color:#0b3d91;
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out
+}
+.fa-arrow-alt-circle-up:hover{
+    transform-origin: center;
+    transform: scale(1.2);
+    color: #0dcaf0;
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out
+}
+
+/*Слайдер*/
+
+.carousel-item #s1{
+    width: 100%;
+    height: 30%;
+}
+
+.carousel-inner{
+    height: 500px;
+}
+.carousel-inner img{
+    height: 100%;
+}
+
+@media (min-width: 1100px){
+    .carousel-inner img{
+        width: 100%;
+    }
+}
+
+.carousel-caption {
+    position: absolute;
+    top:50%;
+    transform: translateY(-80%);
+    text-shadow: 1px 1px 10px #1d2124;
+}
+
+.btn-outline-primary {
+    color: #000000;
+}
+
+@media (max-width: 450px) {
+    .carousel-caption .display-4 {
+        font-size: 3em;
+    }
+}
+
+.jumbotron{
+    padding: 1em;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #AAC5DE;
+    border: 3px #517fa4 solid;
+    border-radius: 20px;
+}
+
+.padding{
+    padding-bottom: 2em;
+}
+
+.lead #text-center-main{
+    border: 3px black solid;
+    border-radius: 20px;
+}
+
+#open-main-text{
+    border: 3px #517fa4 solid;
+    border-radius: 10px;
+}
+
+#text_main_page{
+    margin-top: 25px;
+}
+
+/*Главная*/
+
+#blocks .img-fluid{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.alert{
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 2em;
+}
+
+.row hr{
+    border-top: 2px solid #517fa4;
+    width: 95%;
+    margin-top: 0.3em;
+    margin-bottom: 1em;
+}
+
+.myref,
+#cards .btn{
+    color: #291e83;
+    font-weight: bolder;
+}
+
+.myref:hover,
+#cards .btn:hover{
+    color: #497005;
+    text-decoration: none;
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+}
+
+.zoom{
+    border: 2px #c0c0c0 solid;
+    border-radius: 20px;
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+}
+
+
+.zoom:hover{
+    transition: all.6s ease-in-out;
+    border: 2px #517fa4 solid;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+    transform: scale(1.5);
+}
+
+.fixed_main_img{
+    height: 400px;
+    border-top: 4px solid #AAC5DE;
+    /*background: url("../img/back.jpg") no-repeat center center fixed;*/
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+}
+
+.img_main_article{
+    float:right;
+}
+
+.main_img_article{
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+}
+
+#gifs_button{
+    margin-bottom: 20px;
+}
+
+#gifs img{
+    max-width: 100%;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+#text_gif .display-4{
+    font-size: small;
+}
+
+#cards img{
+    height: 300px;
+}
+
+@media(max-width: 750px){
+    .display-4{
+        font-size: 1.5em;
+    }
+}
+
+.social a{
+    font-size: 4em;
+    padding: 10px;
+}
+
+.fa-facebook{color: #3b5998}
+.fa-instagram{color: #517fa4}
+.fa-twitter{color: #113f4e}
+.fa-telegram{color:#0e52c1}
+
+.fa-facebook:hover,
+.fa-instagram:hover,
+.fa-twitter:hover,
+.fa-telegram:hover
+{
+    color: silver;
+}
+
+
+
+footer{
+    background-image: linear-gradient(to top, #6ebfe3, #7ec3e5, #8dc8e7, #9bcce9, #a8d1eb);
+    border-top: 2px solid #517fa4;
+    color: white;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*Социологи*/
+.table_soc{
+    text-align: center;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*Исследования*/
+
+.col-12.display-4 h1{
+    font-size: 1em;
+}
+
+#open-research-text{
+    margin-top: 20px;
+}
+
+.date_now{
+    padding: 10px;
+    border: 2px rgba(38,85,139,1) solid;
+    border-radius: 10px;
+}
+
+.research_opacity{
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.21)!important;
+    background-color: rgba(255, 255, 0, 0);
+    width: 100%;
+}
+
+.img_article{
+    width: 100%;
+    height: auto;
+}
+
+.btn_article{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*Терминология*/
+.table_terminology{
+    text-align: center;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*О нас*/
+
+.about_us{
+    margin-top: 25px;
+}
+.title_about_us{
+    margin-top: 20px;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+/*Регистрация*/
+
+body{
+    background-color: transparent;
+}
+
+.reg_img{
+    background: url('../img/reg/reg1.jpeg') no-repeat center center fixed;
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+    background-color: transparent;
+}
+
+.container-fluid #reg_container{
+    width: max-content;
+}
+
+.form-group{
+    margin-bottom: 15px;
+}
+.form-group .text-center{
+    color: white;
+}
+.form-group input{
+    color: #000000;
+}
+label{
+    margin-bottom: 15px;
+}
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+}
+.form-control {
+    height: auto!important;
+    padding: 8px 12px !important;
+}
+.input-group {
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+}
+#button {
+    border: 1px solid #517fa4;
+    border-radius: 10px;
+    margin-top: 28px;
+    padding: 6px 12px;
+    color: #666;
+    text-shadow: 0 1px #fff;
+    cursor: pointer;
+    box-shadow: 0 1px #fff inset, 0 1px #ddd;
+    background: #f5f5f5;
+    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
+    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+}
+
+#button:hover{
+    background: rgb(143, 146, 152);
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+    transform: scale(1.1);
+}
+
+.main-form{
+    margin: auto;
+    margin-top: 30px;
+    max-width: 400px;
+    padding: 10px 40px;
+    color: #FFF;
+    text-shadow: none;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+}
+span.input-group-addon i {
+    color: #009edf;
+    font-size: 17px;
+}
+.login-button{
+    margin-top: 5px;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*Терминология*/
+.search_form{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-color: silver;
+}
+.search_button{
+    width: max-content;
+    height: max-content;
+    transform: scale(0.8);
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+}
+
+.search_button:hover{
+    color: #0b3d91;
+    background-color: silver;
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+    transform-origin: center;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+/*Литература*/
+.some_words_about_literature .display-4{
+    font-size: 2em;
+    font-weight: bolder;
+}
+.table thead th {
+    vertical-align: bottom;
+    border: 2px solid black;
+}
+.table-bordered td, .table-bordered th {
+    border: 2px solid black;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*Панель администратора*/
+.article_send_btn{
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+    transform-origin: center;
+
+}
+
+#field_for_find_article{
+    min-width: 500px;
+}
+
+.article_send_btn:hover{
+    transform: scale(1.2);
+}
+
+#file_book,#file_soc{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: auto;
+    margin: auto;
+}

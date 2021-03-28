@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <div th:insert="header"></div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js" th:href="@{https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js}"></script>
+    <title>Редактирование статьи</title>
+</head>
+
+<body>
+<!--Кнопка-->
+<a id="upbutton"><i class="far fa-arrow-alt-circle-up"></i></a>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brad" title="На главную!"><img src="../static/img/favicon.png" th:src="@{img/favicon.png}" alt="ICO"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                <a href="/sociologists" class="nav-link">Социологи</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/research" class="nav-link">Исследования</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/terminology" class="nav-link">Терминология</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/literature" class="nav-link">Литература</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link" id="about_main_bs">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/panel_admin" class="nav-link active" id="panel_admin">Панель администратора</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a href="reg.html" class="nav-link">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Вход</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1 class="display-4 title_article">Редактирование статьи!</h1>
+<br>
+<form id="form_edit_article" th:method="PATCH" th:action="@{/panel_admin/{id}(id=${article.getId()})}" th:object="${article}" enctype="multipart/form-data">
+    <label class="text-center" for="title">Введите тему или оставьте без изменений: </label>
+    <input type="text" th:field="*{title}" id="title">
+    <br>
+    <label class="text-center" for="text">Введите текст статьи или оставьте без изменений: </label>
+    <input type="text" th:field="*{text}" id="text">
+    <br>
+    <label class="text-center" for="img_article">Добавьте картинку или оставьте старую: </label>
+    <input id="img_article" type="file" name="file" placeholder="Выбрать файл">
+    <br>
+    <br>
+</form>
+<div class="text-center">
+<button class="btn-success article_edit_btn" onclick="getDataFromInputs()">Сохранить изменения в статье!</button>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<div class="text-center">
+    <h1 class="display-6">Хотите удалить эту статью?</h1>
+    <form th:method="DELETE" th:action="@{/panel_admin/{id}(id = ${article.getId()})}">
+        <input type="submit" value="Удалить эту статью!!!">
+    </form>
+</div>
+
+
+
+<script>
+
+
+    /*.then( title => {
+        console.log( title );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );*/
+</script>
+
+<script>
+    let titleEditor = ClassicEditor
+                        .create( document.querySelector( '#title' ) )
+                        .then(data => data.data.set(document.querySelector("#title").getAttribute("value")));
+    let textEditor  = ClassicEditor
+                        .create( document.querySelector( '#text' ) )
+                        .then(data => data.data.set(document.querySelector("#text").getAttribute("value")));
+    function insertDataToTextRedactor()
+    {
+        // console.log(titleEditor)
+        // titleEditor.setData(document.getElementById("title").getAttribute("value"))
+        // textEditor.setData(document.getElementById("text").getAttribute("value"))
+    }
+
+    // insertDataToTextRedactor();
+
+    function getDataFromInputs()
+    {
+        let dataFromArticle = document.querySelectorAll(".ck-content");
+        let titleFromInput = dataFromArticle[0].innerHTML;
+        let textFromInput = dataFromArticle[1].innerHTML;
+        document.querySelector("#title").setAttribute("value",titleFromInput);
+        document.querySelector("#text").setAttribute("value",textFromInput);
+        document.querySelector("#form_edit_article").submit();
+    }
+</script>
+
+<footer style="margin-top: auto" th:insert="footer_scripts"></footer>
+
+</body>
+</html>

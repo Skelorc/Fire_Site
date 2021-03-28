@@ -1,0 +1,218 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+html {height: 100%}
+
+body{
+    width: 100%;
+    height: 100%;
+    background: url("../img/fon1.jpg");
+    background-size: auto;
+    color: #333;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 135%;
+}
+
+a{
+    color: #dd8248;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #51772d;
+}
+
+.clear{
+    clear:both;
+}
+
+/* Стили для шапки. */
+
+header{
+    font-family: "Segoe UI Semilight",cursive, sans-serif;
+
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 0 10px #ceab69;
+    border-bottom: 2px solid #ceab69;
+    padding-top: 1%;
+
+    background: #b68d4c;
+    background: -moz-linear-gradient(top,  #b68d4c 0%, #b68d4c 0%, #b68d4c 0%, #f3e2c7 100%);
+    background: -webkit-linear-gradient(top,  #b68d4c 0%,#b68d4c 0%,#b68d4c 0%,#f3e2c7 100%);
+    background: linear-gradient(to bottom,  #b68d4c 0%,#b68d4c 0%,#b68d4c 0%,#f3e2c7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b68d4c', endColorstr='#f3e2c7',GradientType=0 );
+}
+
+.main-menu{
+    padding-top: 5px;
+}
+
+.flex {
+    flex-flow: row nowrap;
+    justify-content:  space-between;
+    align-items: center;
+    display: flex;
+}
+
+.flex #about_feedback{
+    margin-left: 2%;
+}
+
+.flex #feedback_header{
+    margin-left: 0.75em;
+}
+
+.flex #about{
+    margin-right: 0.75em;
+}
+
+.flex #reg_in{
+    justify-content: space-between;
+    margin-right: 2%;
+}
+
+.flex #in{
+    margin-right: 0.75em;
+}
+
+.main-menu__list{
+    width: 100%;
+}
+
+.main-menu__item a:hover{
+    color: #73a032;
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+}
+
+.main-menu__item{
+    list-style: none;
+
+}
+
+.main-menu__item a{
+    color: #333333;
+    font-size: 1.3em;
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+}
+
+/* Стили для правой колонки! */
+
+.flex#right_column{
+    flex-flow: column nowrap;
+    margin-right: 20px;
+
+}
+
+.item#kont,
+.item#durgkeim,
+.item#spenser{
+    position: relative;
+}
+.flex #right_column{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.item #kont_image,
+.item #dur_image,
+.item #spenser_image{
+    opacity: 1;
+    box-shadow: 0 0 20px #8f7642;
+    position: relative;
+    border-radius: 20px;
+    z-index: 1;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+}
+
+.item#mask_kont,
+.item#mask_dur,
+.item#mask_spenser{
+    width: 250px;
+    text-align: center;
+    font-family: "Segoe UI Semilight",cursive, sans-serif;
+    opacity: 0.0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+}
+
+.item #kont_image:hover ~ .item#mask_kont,
+.item #dur_image:hover ~ .item#mask_dur,
+.item #spenser_image:hover ~ .item#mask_spenser{
+    opacity: 1;
+}
+.item #kont_image:hover,
+.item #dur_image:hover,
+.item #spenser_image:hover
+{
+    opacity: 0;
+}
+
+
+
+/* Стили для футера! */
+
+footer{
+    width: 96%;
+
+    padding: 2%;
+    font-family: "Segoe UI Semilight",cursive, sans-serif;
+    border-top: 2px solid #ceab69;
+    box-shadow: 0 0 10px #ceab69;
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    background: #f3e2c7;
+    background: -moz-linear-gradient(top,  #f3e2c7 0%, #b68d4c 100%, #b68d4c 100%, #b68d4c 100%);
+    background: -webkit-linear-gradient(top,  #f3e2c7 0%,#b68d4c 100%,#b68d4c 100%,#b68d4c 100%);
+    background: linear-gradient(to bottom,  #f3e2c7 0%,#b68d4c 100%,#b68d4c 100%,#b68d4c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#b68d4c',GradientType=0 );
+
+}
+
+footer .footer_list_item{
+    list-style: none;
+}
+
+footer a{
+    color: #2d2c2c;
+}
+
+footer a:hover{
+    color: #73a032;
+    text-decoration-color: #ac1919;
+
+    transition: all.6s ease-in-out;
+    -webkit-transition: all.6s ease-in-out;
+    -moz-transition: all.6s ease-in-out;
+    -o-transition: all.6s ease-in-out;
+    -ms-transition: all.6s ease-in-out;
+}
+
+.footer_list_item#footer_item_about{
+    margin-left: auto;
+    margin-right: 10px;
+}

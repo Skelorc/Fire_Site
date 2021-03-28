@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <div th:insert="header"></div>
+    <title>Панель Администратора/Книги</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brad" title="На главную!"><img src="../static/img/favicon.png" th:src="@{/img/favicon.png}" alt="ICO"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                <a href="/sociologists" class="nav-link">Социологи</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/research" class="nav-link">Исследования</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/terminology" class="nav-link">Терминология</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/literature" class="nav-link">Литература</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link" id="about_main_bs">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/panel_admin" class="nav-link active" id="panel_admin">Панель администратора</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a href="reg.html" class="nav-link">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Вход</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="text-md-center">
+    <h1 class="display-4 title_article">Панель навигации администратора!</h1>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/panel_admin">Добавить/редактировать статью <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/panel_admin/book">Добавить/редактировать книгу <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/panel_admin/soc"> <span class="sr-only">(current)</span>Добавить/редактировать ученого</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/panel_admin/terms"> <span class="sr-only">(current)</span>Добавить/редактировать термин</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="text-center">
+    <h1 class="display-4 title_article">Добавление/редактирование книг</h1>
+    <h1 class="display-4 title_article">ВАЖНО: Имя файла должно быть на английском языке!!!</h1>
+</div>
+
+    <form th:action="@{/panel_admin/book/send_book}" method="post"  enctype="multipart/form-data" class="text-center">
+
+            <label for="author_book">Напишите Автора книги.</label>
+            <input id="author_book" type="text" name="author" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Введите автора книги">
+            <label for="name_book">Напишите Название книги.</label>
+            <input id="name_book" type="text" name="name_book" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Введите название книги">
+            <label for="text_about_books">Напишите краткое описание книги на ваше усмотрение.</label>
+            <textarea type="text" name="text_about_books" class="form-control" id="text_about_books" placeholder="Введите краткое описание, о чем эта книга..." rows="3"></textarea>
+            <input type="file" name="file" class="form-control-file" id="file_book" placeholder="Найдите файл на компьютере!">
+            <button class="btn-success text-md-center">Загрузить книгу!</button>
+
+    </form>
+
+<div class="text-center">
+    <h1 class="display-4 title_article">Редактирование данных о книгах!</h1>
+    <form method="get">
+        <label for="field_for_find_book"><h5>Введите ключевые слова для поиска нужной литературы: </h5></label>
+        <input id="field_for_find_book" type="text" name="edit_book" placeholder="Введи название книги или имя автора!">
+        <br>
+        <br>
+        <button class="btn-info" type="submit">Получить книгу!</button>
+        <br>
+    </form>
+</div>
+
+<h1 class="text-center"> Найденные книги: </h1>
+<div class="row jumbotron research_opacity" th:each="book : ${books}">
+    <a th:href="@{/panel_admin/book/{id}/edit_book(id = ${book.getId()})}"><p th:utext="${book.getName_book()}"></p></a>
+    <br>
+
+</div>
+
+<div th:insert="footer_scripts"></div>
+</body>
+</html>

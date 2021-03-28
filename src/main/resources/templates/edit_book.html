@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <div th:insert="header"></div>
+    <title>Редактирование книги</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brad" title="На главную!"><img src="../static/img/favicon.png" th:src="@{/img/favicon.png}" alt="ICO"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                <a href="/sociologists" class="nav-link">Социологи</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/research" class="nav-link">Исследования</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/terminology" class="nav-link">Терминология</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/literature" class="nav-link">Литература</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link" id="about_main_bs">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/panel_admin" class="nav-link active" id="panel_admin">Панель администратора</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a href="reg.html" class="nav-link">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Вход</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1 class="display-4 title_article">Редактирование Книги!</h1>
+<br>
+
+<form id="form_edit_book" th:method="PATCH" th:action="@{/panel_admin/book/{id}/book(id=${book.getId()})}" th:object="${book}" enctype="multipart/form-data">
+    <label class="text-center" for="author">Напишите автора транслитом или оставьте без изменений: </label>
+    <input type="text" th:field="*{author}" id="author">
+    <br>
+    <label class="text-center" for="name_book">Введите название книги, обязательно, транслитом или оставьте без изменений: </label>
+    <input type="text" th:field="*{name_book}" id="name_book">
+    <br>
+    <label class="text-center" for="text_about_books">Введите описание книги или оставьте без изменений: </label>
+    <input type="text" th:field="*{text_about_books}" id="text_about_books">
+    <br>
+    <div class="text-md-center">
+        <button class="btn-success" type="submit">Сохранить изменения!</button>
+    </div>
+</form>
+
+<div class="text-center">
+    <h1 class="display-6">Хотите удалить эту книгу?</h1>
+    <form th:method="DELETE" th:action="@{/panel_admin/book/{id}/book (id = ${book.getId()})}">
+        <input type="submit" value="Удалить эту книгу!!!">
+    </form>
+</div>
+
+
+
+<footer style="margin-top: auto" th:insert="footer_scripts"></footer>
+
+
+</body>
+</html>

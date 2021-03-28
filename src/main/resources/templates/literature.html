@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <div th:insert="header"></div>
+    <title>Литература</title>
+</head>
+<body>
+<!--Кнопка-->
+<a id="upbutton"><i class="far fa-arrow-alt-circle-up"></i></a>
+<!--Шапка-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brad" title="На главную!"><img src="../static/img/favicon.png" th:src="@{img/favicon.png}" alt="ICO"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/sociologists" class="nav-link">Социологи</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/research" class="nav-link">Исследования</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/terminology" class="nav-link">Терминология</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/literature" class="nav-link active">Литература</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link" id="about_main_bs">О нас</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a href="reg.html" class="nav-link">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Вход</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="text-md-center">
+    <div class="some_words_about_literature">
+    <h6 class="display-4" >Здесь вы можете скачать, интересующие вас, книги.</h6>
+    <h6 class="display-4">Каждая книга с кратким описанием.</h6>
+    </div>
+    <br>
+    <table class="table table-bordered table_lit" id="table_lit">
+        <thead>
+        <tr>
+            <th scope="col">Автор</th>
+            <th scope="col">Название книги</th>
+            <th scope="col">Краткое описание</th>
+            <th scope="col">Ссылка на скачивание книги</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:utext="${book.author}">Mark</td>
+            <td th:utext="${book.name_book}">Otto</td>
+            <td th:utext="${book.text_about_books}">Otto</td>
+            <td> <a title="Скачать книгу!" th:href="@{|/literature/download?id=${book.getId()}|}"> <span th:utext="${book.getName_book()}"></span></a></td>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<footer style="margin-top: auto" th:insert="footer_scripts"></footer>
+
+
+</body>
+</html>
